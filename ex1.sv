@@ -9,7 +9,7 @@ always_comb begin
 end
 
 //Questao 2
-SEG[0] <= (SWI[0] & (!SWI[1] | SWI[2]);
+SEG[0] <= (SWI[0] & !SWI[1]) | (SWI[0] & SWI[2]);
 
 // Questao 3
 SEG[7] <= (!SWI[3] & SWI[4]); // ERRO
