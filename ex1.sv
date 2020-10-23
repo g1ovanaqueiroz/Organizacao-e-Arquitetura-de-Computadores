@@ -12,9 +12,14 @@ end
 SEG[0] <= (SWI[0] & !SWI[1]) | (SWI[0] & SWI[2]);
 
 // Questao 3
-SEG[7] <= (!SWI[3] & SWI[4]); // ERRO
-LED[6] <= (!SWI[3] & !SWI[4]); // AQUECEDOR
-LED[7] <= (SWI[3] & SWI[4]); // RESFRIADOR
+always_comb begin
+  // ERRO (NAO HA COMO SE ESTAR ABAIXO DE 15 E ACIMA DE 20 AO MESMO TEMPO)
+  SEG[7] <= (!SWI[3] & SWI[4]);
+    // AQUECEDOR
+  LED[6] <= (!SWI[3] & !SWI[4]);
+  // RESFRIADOR
+  LED[7] <= (SWI[3] & SWI[4]);
+end 
 
 // Questao 4
 LED[0] <= (!SWI[0]); // LAVATORIO FEMININO LIVRE
