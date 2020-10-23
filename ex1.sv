@@ -1,12 +1,11 @@
 // Questao 1
 always_comb begin
-  if (SWI[6] && SWI[7] && SWI[5]) begin // b
+  if (SWI[6] & SWI[7] & SWI[5]) // b
     LED[2] <= 1;
-  end else if (SWI[4] && SWI[5]) begin // a
+  else if (SWI[4] & SWI[5]) // a
     LED[2] <= 1;
-  end else  // O EXPEDIENTE AINDA NAO ACABOU
+  else  // O EXPEDIENTE AINDA NAO ACABOU
     LED[2] <= 0;
-  end
 end
 
 //Questao 2
