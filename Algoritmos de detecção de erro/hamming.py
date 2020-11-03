@@ -113,6 +113,7 @@ def encode(binary):
 
 """
 Função que realiza a decodificação do código de Hamming.
+Retorna True quando não há erro, e False caso haja erro.
 """
 def decode(binary):
   # Lista contendo os binários dos índices dos uns de binary
@@ -121,7 +122,26 @@ def decode(binary):
   # Fazendo xor nos índices dos uns
   result = list_inversor(loop_xor(list_ones))
 
-  print(result)
+  # Índices dos uns contidos em result
+  ones_of_result = get_index_element_equals_1(result)
 
+  return ones_of_result == []
+
+
+print("*************************Olá, seja bem vindo!*************************\n * Digite 1 para função de codificar do código Hamming. \n * Digite 2 para função de decodificar do código Hamming.")
 entrada = input()
-decode(entrada)
+
+while True:
+  if entrada == '1':
+    print("Digite o binário desejado:")
+    binary = input()
+    print("\nMensagem codificada:\n" + encode(binary))
+    break
+  if entrada == '2':
+    print("Digite o binário desejado:")
+    binary = input()
+    if(decode(binary)): print("\nSem erros! :)")
+    else: print("\niiih... Algo de errado não está certo...")
+    break
+  else:
+    print("Opção inválida, tente novamente!")
