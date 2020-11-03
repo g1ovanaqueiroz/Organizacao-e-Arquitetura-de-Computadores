@@ -115,7 +115,13 @@ def encode(binary):
 Função que realiza a decodificação do código de Hamming.
 """
 def decode(binary):
-  #TODO
+  # Lista contendo os binários dos índices dos uns de binary
+  list_ones = get_index_element_equals_1(binary)
+
+  # Fazendo xor nos índices dos uns
+  result = list_inversor(loop_xor(list_ones))
+
+  print(result)
 
 entrada = input()
-print(encode(entrada))
+decode(entrada)
