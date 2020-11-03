@@ -55,6 +55,3 @@ def error_detector_odd(bin):
     if bit == '1':
       acum += 1
   return not even(acum)
-
-bin = input()
-print(str(error_detector_odd(bin)))
