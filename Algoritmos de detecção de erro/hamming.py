@@ -46,7 +46,7 @@ def get_index_element_equals_1(binary):
   index_list = []
   for i in range(len(binary)):
     if binary[i] == '1':
-      index_list.append(int_to_bin(i+1, len_power2(binary) - 1))
+      index_list.append(int_to_bin(i+1, len_power2(binary)))
   return index_list
 
 """
@@ -128,17 +128,30 @@ def decode(binary):
   return ones_of_result == []
 
 
+"""
+***********************************************Exemplos*************************************************
+* Codificação -> entrada: 0011  saída: 1000011
+                 entrada: 0101011   saída: 11001010011
+
+* Decodificação -> entrada: 1000011   saída: True
+                   entrada: 1100011   saída: False
+                   entrada: 11001010011   saída: True
+                   entrada: 10001010011   saída: False
+                   
+"""
+
+
 print("*************************Olá, seja bem vindo!*************************\n * Digite 1 para função de codificar do código Hamming. \n * Digite 2 para função de decodificar do código Hamming.")
-entrada = input()
 
 while True:
+  entrada = input()
   if entrada == '1':
     print("Digite o binário desejado:")
     binary = input()
     print("\nMensagem codificada:\n" + encode(binary))
     break
   if entrada == '2':
-    print("Digite o binário desejado:")
+    print("\nDigite o binário desejado:")
     binary = input()
     if(decode(binary)): print("\nSem erros! :)")
     else: print("\niiih... Algo de errado não está certo...")
